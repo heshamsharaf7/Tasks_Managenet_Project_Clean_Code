@@ -1,0 +1,469 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="QA agent" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <!--admin page -->
+    <!-- Vendor CSS Files -->
+    <link href="~/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/admin/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/admin/vendor/quill/quill.snow.css" rel="stylesheet">
+    <link href="~/admin/vendor/quill/quill.bubble.css" rel="stylesheet">
+    <link href="~/admin/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/admin/vendor/simple-datatables/style.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/admin/css/adminstyle.css" rel="stylesheet">
+
+    <!--Login page -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Login/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="~/Login/css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Login/css/bootstrap.min.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="~/Login/`css/style.css">
+
+
+    <!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.4/css/buttons.bootstrap4.min.css">
+    <link href="admin/master/css/bootstrap.min.css" rel="stylesheet">
+    <link href="admin/master/font-awesome/css/font-awesome.css" rel="stylesheet">-->
+    <!-- Toastr style -->
+    <!--<link href="admin/master/css/plugins/toastr/toastr.min.css" rel="stylesheet">-->
+    <!-- Gritter -->
+    <!--<link href="admin/master/js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="admin/master/css/animate.css" rel="stylesheet">
+    <link href="admin/master/css/style.css" rel="stylesheet">-->
+
+    <link rel="shortcut icon" type="image/x-icon" href="~/images/logoPage.png">
+
+
+
+
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+</head>
+
+<body>
+    <!-- ======= Header ======= -->
+    <header id="header" dir="ltr" class="header fixed-top d-flex align-items-center" dir="ltr">
+
+        <div dir="ltr" dir="ltr" class="d-flex align-items-center justify-content-between" dir="ltr">
+            <a href="index.html" dir="ltr" class="logo d-flex align-items-center">
+                <img src="~/images/logo.jpg" alt="">
+            </a>
+            <i dir="ltr" class="bi bi-list toggle-sidebar-btn"></i>
+        </div><!-- End Logo -->
+        @*<div dir="ltr" class="search-bar" dir="ltr">
+                <form dir="ltr" class="search-form d-flex align-items-center" method="POST" action="#">
+                    <input type="text" name="query" placeholder="بحث" title="Enter search keyword">
+                    <button type="submit" title="Search"><i dir="ltr" class="bi bi-search"></i></button>
+                </form>
+            </div>*@<!-- End Search Bar -->
+
+        <nav dir="ltr" class="header-nav ms-auto" dir="ltr">
+            <ul dir="ltr" class="d-flex align-items-center">
+
+                @*<li dir="ltr" class="nav-item d-block d-lg-none">
+                    <a dir="ltr" class="nav-link nav-icon search-bar-toggle " href="#">
+                        <i dir="ltr" class="bi bi-search"></i>
+                    </a>*@
+                </li><!-- End Search Icon-->
+                @*<li dir="ltr" class="nav-item dropdown">
+
+                        <a dir="ltr" class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                            <i dir="ltr" class="bi bi-bell"></i>
+                            <span dir="ltr" class="badge bg-primary badge-number">4</span>
+                        </a> End Notification Icon
+
+                        <ul dir="ltr" class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
+                            <li dir="ltr" class="dropdown-header">
+                                You have 4 new notifications
+                                <a href="#"><span dir="ltr" class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                            </li>
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>
+
+                            <li dir="ltr" class="notification-item">
+                                <i dir="ltr" class="bi bi-exclamation-circle text-warning"></i>
+                                <div>
+                                    <h4>Lorem Ipsum</h4>
+                                    <p>Quae dolorem earum veritatis oditseno</p>
+                                    <p>30 min. ago</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>
+
+                            <li dir="ltr" class="notification-item">
+                                <i dir="ltr" class="bi bi-x-circle text-danger"></i>
+                                <div>
+                                    <h4>Atque rerum nesciunt</h4>
+                                    <p>Quae dolorem earum veritatis oditseno</p>
+                                    <p>1 hr. ago</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>
+
+                            <li dir="ltr" class="notification-item">
+                                <i dir="ltr" class="bi bi-check-circle text-success"></i>
+                                <div>
+                                    <h4>Sit rerum fuga</h4>
+                                    <p>Quae dolorem earum veritatis oditseno</p>
+                                    <p>2 hrs. ago</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>
+
+                            <li dir="ltr" class="notification-item">
+                                <i dir="ltr" class="bi bi-info-circle text-primary"></i>
+                                <div>
+                                    <h4>Dicta reprehenderit</h4>
+                                    <p>Quae dolorem earum veritatis oditseno</p>
+                                    <p>4 hrs. ago</p>
+                                </div>
+                            </li>
+
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>
+                            <li dir="ltr" class="dropdown-footer">
+                                <a href="#">Show all notifications</a>
+                            </li>
+
+                        </ul> End Notification Dropdown Items
+
+                    </li> End Notification Nav*@
+
+                @*<li dir="ltr" class="nav-item dropdown">
+
+                        <a dir="ltr" class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
+                            <i dir="ltr" class="bi bi-chat-left-text"></i>
+                            <span dir="ltr" class="badge bg-success badge-number">3</span>
+                        </a> End Messages Icon
+
+                        <ul dir="ltr" class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
+                            <li dir="ltr" class="dropdown-header">
+                                You have 3 new messages
+                                <a href="#"><span dir="ltr" class="badge rounded-pill bg-primary p-2 ms-2">View all</span></a>
+                            </li>
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>
+
+                            <li dir="ltr" class="message-item">
+                                <a href="#">
+                                    <img src="assets/img/messages-1.jpg" alt="" dir="ltr" class="rounded-circle">
+                                    <div>
+                                        <h4>Maria Hudson</h4>
+                                        <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                                        <p>4 hrs. ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>
+
+                            <li dir="ltr" class="message-item">
+                                <a href="#">
+                                    <img src="assets/img/messages-2.jpg" alt="" dir="ltr" class="rounded-circle">
+                                    <div>
+                                        <h4>Anna Nelson</h4>
+                                        <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                                        <p>6 hrs. ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>
+
+                            <li dir="ltr" class="message-item">
+                                <a href="#">
+                                    <img src="assets/img/messages-3.jpg" alt="" dir="ltr" class="rounded-circle">
+                                    <div>
+                                        <h4>David Muldon</h4>
+                                        <p>Velit asperiores et ducimus soluta repudiandae labore officia est ut...</p>
+                                        <p>8 hrs. ago</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>
+
+                            <li dir="ltr" class="dropdown-footer">
+                                <a href="#">Show all messages</a>
+                            </li>
+
+                        </ul> End Messages Dropdown Items
+
+                    </li> End Messages Nav*@
+
+                <li dir="ltr" class="nav-item dropdown pe-3">
+
+                    <a dir="ltr" class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                        <img src="~/Uploads/@User.Claims.FirstOrDefault(c => c.Type == "UserPhotoPath").Value" alt="Profile" dir="ltr" class="rounded-circle">
+                        <span dir="ltr" class="d-none d-md-block dropdown-toggle ps-2">@User.Identity.Name</span>
+                    </a><!-- End Profile Iamge Icon -->
+
+                    <ul dir="ltr" class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                        @*<li dir="ltr" class="dropdown-header">
+                                <h6> </h6>
+
+                                <span>مهندس برمجيات</span>
+                            </li>*@
+                        @*<li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>*@
+
+                        <li>
+                            <a dir="ltr" class="dropdown-item d-flex align-items-center" asp-action="Index" asp-controller="Account">
+                                <i dir="ltr" class="bi bi-person"></i>
+                                <span>حسابي</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr dir="ltr" class="dropdown-divider">
+                        </li>
+
+                        @*<li>
+                                <a dir="ltr" class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                                    <i dir="ltr" class="bi bi-gear"></i>
+                                    <span>اعدادات الحساب</span>
+                                </a>
+                            </li>
+                            <li>
+                                <hr dir="ltr" class="dropdown-divider">
+                            </li>*@
+
+                        <li>
+                            <a dir="ltr" class="dropdown-item d-flex align-items-center" asp-action="Contact" asp-controller="Home">
+                                <i dir="ltr" class="bi bi-question-circle"></i>
+                                <span>مساعدة؟</span>
+                            </a>
+                        </li>
+                        <li>
+                            <hr dir="ltr" class="dropdown-divider">
+                        </li>
+
+                        <li>
+                            <a dir="ltr" class="dropdown-item d-flex align-items-center" asp-action="Logout" asp-controller="Account">
+                                <i dir="ltr" class="bi bi-box-arrow-right"></i>
+                                <span>خروج</span>
+                            </a>
+                        </li>
+
+                    </ul><!-- End Profile Dropdown Items -->
+                </li><!-- End Profile Nav -->
+
+            </ul>
+        </nav><!-- End Icons Navigation -->
+
+    </header><!-- End Header -->
+    <!-- ======= Sidebar ======= -->
+
+    <aside id="sidebar" dir="ltr" class="sidebar" dir="ltr">
+
+        <ul dir="ltr" class="sidebar-nav" id="sidebar-nav">
+
+            <li dir="ltr" class="nav-item">
+                <a dir="ltr" class="nav-link " asp-action="Index" asp-controller="Dashboard">
+                    <i dir="ltr" class="bi bi-grid"></i>
+                    <span>الصفحة الرئيسية</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
+
+            <li dir="ltr" class="nav-item">
+                <a dir="ltr" class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+                    <i dir="ltr" class="bi bi-menu-button-wide"></i><span>المهام</span><i dir="ltr" class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="components-nav" dir="ltr" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-action="Index" asp-controller="Tasks">
+                            <i dir="ltr" class="bi bi-circle"></i><span>المهام</span>
+                        </a>
+                    </li>
+
+
+                </ul>
+            </li><!-- End Tasks Nav -->
+
+            <li dir="ltr" class="nav-item">
+                <a dir="ltr" class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+                    <i dir="ltr" class="bi bi-people"></i><span>الموظفين</span><i dir="ltr" class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="forms-nav" dir="ltr" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-action="Index" asp-controller="Employee">
+                            <i dir="ltr" class="bi bi-circle"></i><span>الموظفين</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-action="AssignTasks" asp-controller="Employee">
+                            <i dir="ltr" class="bi bi-circle"></i><span>اسناد مهام لموظف</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li><!-- End Employee Nav -->
+
+            <li dir="ltr" class="nav-item">
+                <a dir="ltr" class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+                    <i dir="ltr" class="ri-user-smile-line"></i><span>العملاء</span><i dir="ltr" class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav" dir="ltr" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-action="Index" asp-controller="Account">
+                            <i dir="ltr" class="bi bi-circle"></i><span>بيانات العملاء</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tables-data.html">
+                            <i dir="ltr" class="bi bi-circle"></i><span>اضافة عملاء مشتركين</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Customers Nav -->
+            <li dir="ltr" class="nav-item">
+                <a dir="ltr" class="nav-link collapsed" data-bs-target="#financial-nav" data-bs-toggle="collapse" href="#">
+                    <i dir="ltr" class="bi bi-coin"></i><span>الحركات المالية</span><i dir="ltr" class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="financial-nav" dir="ltr" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="tables-general.html">
+                            <i dir="ltr" class="bi bi-circle"></i><span>قيد يومية</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tables-data.html">
+                            <i dir="ltr" class="bi bi-circle"></i><span>سند قبض</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tables-data.html">
+                            <i dir="ltr" class="bi bi-circle"></i><span>سند صرف</span>
+                        </a>
+                    </li>
+                </ul>
+            </li><!-- End Financial Nav -->
+
+            <li dir="ltr" class="nav-item">
+                <a dir="ltr" class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
+                    <i dir="ltr" class="ri-settings-2-fill"></i><span>تهيئة النظام</span><i dir="ltr" class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="charts-nav" dir="ltr" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a asp-action="Index" asp-controller="Majors">
+                            <i dir="ltr" class="bi bi-circle"></i><span>التخصصات</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li><!-- End System Initialization Nav -->
+
+            <li dir="ltr" class="nav-item">
+                <a dir="ltr" class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
+                    <i dir="ltr" class="ri-list-settings-line"></i><span>اعدادات</span><i dir="ltr" class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="icons-nav" dir="ltr" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    @*<li>
+                            <a href="icons-bootstrap.html">
+                                <i dir="ltr" class="bi bi-circle"></i><span>Bootstrap Icons</span>
+                            </a>
+                        </li>*@
+
+                </ul>
+            </li><!-- End Setting Nav -->
+
+            <li dir="ltr" class="nav-heading">اختصارات</li>
+
+            <li dir="ltr" class="nav-item">
+                <a dir="ltr" class="nav-link collapsed">
+                    <i dir="ltr" class="bi bi-person"></i>
+                    <span>صفحتي الشخصية</span>
+                </a>
+            </li><!-- End Profile Page Nav -->
+            <li dir="ltr" class="nav-item">
+                <a dir="ltr" class="nav-link collapsed" asp-action="Index" asp-controller="Contact">
+                    <i dir="ltr" class="bi bi-em"></i>
+                    <span> البريد المرسل</span>
+                </a>
+            </li><!-- End Email Page Nav -->
+
+
+
+        </ul>
+
+    </aside><!-- End Sidebar-->
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer" dir="ltr" class="footer">
+        <div dir="ltr" class="copyright">
+            &copy; Copyright <strong><span>TechNow</span></strong>. All Rights Reserved
+        </div>
+        <div dir="ltr" class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: https://bootstrapmade.com/license/ -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+            Designed by <a href="">TechNowCo</a>
+        </div>
+    </footer><!-- End Footer -->
+
+    <a href="#" dir="ltr" class="back-to-top d-flex align-items-center justify-content-center"><i dir="ltr" class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="~/admin/vendor/apexcharts/apexcharts.min.js"></script>
+    <script src="~/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/admin/vendor/chart.js/chart.min.js"></script>
+    <script src="~/admin/vendor/echarts/echarts.min.js"></script>
+    <script src="~/admin/vendor/quill/quill.min.js"></script>
+    <script src="~/admin/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="~/admin/vendor/tinymce/tinymce.min.js"></script>
+    <script src="~/admin/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="~/admin/js/main.js"></script>
+
+    <!-- library js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.4/js/buttons.colVis.min.js"></script>
+
+        <script src="~/lib/signalr.js"></script>
+        <script src="~/js/task.js"></script>
+
+    <script src="~/js/js.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,104 @@
+﻿@model UserUpdateDto
+@{
+    Layout = "_Student";
+
+    ViewData["Title"] = "Student";
+}
+<section style="background-color: #eee;">
+    <div class="container py-5">
+
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-body text-center">
+                        @if (Model.Photo == "logo.png")
+                        {
+                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+                                 class="rounded-circle img-fluid" style="width: 150px;">
+                        }
+                        else
+                        {
+                            <img src="~/Uploads/@Model.Photo" alt="avatar"
+                                 class="rounded-circle img-fluid" style="width: 150px;">
+                        }
+                        <h5 class="my-3">@Model.Name</h5>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                @if (ViewBag.isSuccess == true)
+                {
+                    <div class="@ViewBag.alertType" role="alert">
+                        @ViewBag.message
+                    </div>
+                }
+
+            <form method="post" asp-controller="Account" asp-action="UpdateProfile">
+                <div asp-validation-summary="All"></div>
+
+                <div class="card mb-4">
+                    <div class="card-body">
+
+                        <input asp-for="Id" type="text" hidden style="border:none;" class="text-center  mb-1 " value="@Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserId").Value)"></input>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">الاسم</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input asp-for="Name" type="text" style="border:none;" class="text-center  mb-1 " value="@Model.Name"></input>
+                                <span asp-validation-for="Name" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">الايميل</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="email" asp-for="Email" style="border:none;" class="text-center  mb-1 " value="@Model.Email"></input>
+                                <span asp-validation-for="Email" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">رقم الهاتف</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="tel" asp-for="PhoneNumber" style="border:none;" class="text-center  mb-1 " value="@Model.PhoneNumber"></input>
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">كلمة المرور </p>
+
+                            </div>
+                            <div class="col-sm-9">
+                                <input type="text" asp-for="Password" style="border:none;" class="text-center  mb-1 " value="@Model.Password"></input>
+                                <span asp-validation-for="Password" class="text-danger"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group last mb-4">
+                    <input type="submit" value="تعديل البيانات" class="btn btn-block btn-primary">
+
+                </div>
+            </form>
+            </div>
+
+
+        </div>
+        
+    </div>
+</section>

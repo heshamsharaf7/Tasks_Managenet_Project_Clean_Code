@@ -1,0 +1,179 @@
+﻿@model TaskDetailsDto
+
+@{
+    if (Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserType").Value) == 1)
+        Layout = "_sidebar";
+    else if (Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserType").Value) == 2)
+        Layout = "_Student";
+}
+<main id="main" dir="rtl" class="main">
+
+    <div class="wrapper wrapper-content" dir="rtl">
+
+        <div class="container">
+            <h3>بيانات المهمة</h3>
+        </div>
+        <form method="post" enctype="multipart/form-data" asp-action="AddTask" asp-controller="Tasks">
+            <div class="form-group">
+                <label style="color:#5434BD"> المهمة:  </label>
+
+                <textarea readonly rows="8" class="form-control overflow-auto" style="min-width: 100%">@Model.title</textarea>
+            </div>
+
+            <br />
+
+            @*  <div class="form-group">
+            <label>
+                تاريخ الارسال: @Model.EnterdDate   &nbsp;&nbsp;
+                &nbsp;
+
+            </label>
+            <label>الى تاريخ: @Model.DueDate </label>
+        </div>
+
+
+            <br />
+
+            <div class="form-group">
+                <label>
+                    المرسل: @Model.UserName  &nbsp;
+                    &nbsp;
+                    &nbsp;
+                </label>
+                <label>حالة المهمة: @Model.TaskStatuesName</label>
+            </div>
+            *@
+            <br />
+
+            <div class="form-group">
+                @*    @if (Model.endDate.ToString() == "01/01/0001 12:00:00 AM")
+                {
+
+                }
+                else
+                {
+                    <label>تاريخ اتمام المهمة: @Model.endDate</label>
+                }
+
+            </div>-*@
+
+                <br />
+                <div class="form-group">
+                    <label>الملفات المرفقة</label>
+
+
+
+                </div>
+            </div>
+            <div class="form-group">
+
+                @if (Model.FilesPath != null)
+                {
+                    var imgs = new[] { "jpg", "png", "jpeg" };
+                    bool x = false;
+
+                    @foreach (var paths in Model.FilesPath)
+                    {
+                        string directory = ("task" + Model.Id.ToString()).Trim();
+
+
+
+
+
+                        <div class="card bg-dark text-white">
+                            <img src="~/tasks/@directory/@paths" class="card-img" alt="...">
+                            <div class="card-img-overlay">
+                                <div class="d-flex align-items-center "><a href="~/tasks/@directory/@paths" download><i class="fa fa-download"></i>  </a></div>
+                            </div>
+
+
+                        </div>
+                        <br />
+
+                    }
+                }
+                else
+                {
+                    <p class="fa-align-center"> لاتوجد ملفات مرفقة</p>
+                }
+            </div>
+            <br />
+            <br />
+
+            <div class="form-group">
+                <h3 style="font-weight:bold">الاجابات </h3>
+                <hr>
+                <hr>
+
+            </div>
+            @foreach (var answers in Model.Answers)
+            {<br />
+
+
+                <div class="form-group">
+                    <label style="color:#5434BD"> الاجابة  :  </label>
+
+                    <textarea rows="8" class="form-control overflow-auto" style="min-width: 100%">@answers.Notes</textarea>
+                </div>
+                <br />
+                <label></label>
+                <label>الملفات المرفقة</label>
+                @if (answers.FilesPath != null)
+                {
+                    var imgs = new[] { "jpg", "png", "jpeg" };
+                    bool x = false;
+        <ul class="list-group">
+            @foreach (var paths in Model.FilesPath)
+            {
+                
+
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    @paths
+                      <span class="badge badge-primary badge-pill"><a href="~/Uploads/@paths" download>  تنزيل</a></span>
+                </li>
+
+
+               
+                @*@for (int i = 0; i < imgs.Length; i++)
+            {
+                @if (paths.IndexOf(imgs[i].ToString()) != 0)
+                {
+                    x = true;
+                }@if (x == true)
+                {
+                    <img src="~/Uploads/@paths">
+                }
+            }
+            @if (paths.IndexOf("pdf") > 0)
+            {
+                <iframe src="~/Uploads/@paths"
+                        frameBorder="0"
+                        scrolling="auto"
+                        height="100%"
+                        width="100%"></iframe>
+            }*@
+
+
+            }
+        </ul>
+                        /**/
+                        }
+                        }
+
+                        @if (Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "UserType").Value) == 1)
+                        {
+                            <div class="form-group">
+                                <!--     <button type="submit" value="add task" class="btn btn-primary" id="sendButton"> اضافة</button>-->
+                                <button asp-action="Index" value="all majors" class="btn btn-primary"> كافة المهام</button>
+                                <a class=" btn btn-primary" asp-action="AddAnswer" asp-controller="Answers" asp-route-id="@Model.Id" asp-route-statues="4"> اضافة اجابة </a>
+                            </div>
+                        }
+
+
+
+
+                    </form>
+    </div>
+
+
+</main>

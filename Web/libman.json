@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap@5.1.3",
+      "destination": "wwwroot/bootstrap/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "signalr@2.4.3",
+      "destination": "wwwroot/lib/signalr/",
+      "files": [
+        "jquery.signalR.js",
+        "jquery.signalR.min.js",
+        "LICENSE.md",
+        "package.json",
+        "README.md"
+      ]
+    }
+  ]
+}

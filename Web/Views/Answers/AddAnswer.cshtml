@@ -1,0 +1,44 @@
+﻿@model AnswerAddDto
+
+@{
+    Layout = "_sidebar";
+    
+
+}
+<main id="main" dir="ltr" class="main">
+
+    <div class="wrapper wrapper-content" dir="rtl">
+        @if (ViewBag.isSuccess == true)
+        {
+        <div class="@ViewBag.alertType" role="alert">
+            @*saved done <a asp-controller="book" asp-action="GetBookByI" asp-route-id="@ViewBag.bookId" class="alert-link">go to details</a>. Give it a click if you like.*@
+            @ViewBag.message
+        </div>
+        }
+        <div class="container">
+            <h3>  اضافة اجابة </h3>-
+
+        </div>
+        <form method="post" enctype="multipart/form-data" asp-action="AddAnswer" asp-controller="Answers">
+            <div class="form-group">
+                <label style="position:center"> المحتوى</label>
+                <textarea class="form-control" asp-for="Notes" style="height:40px"></textarea>
+                <span class="text-danger" asp-validation-for="Notes"></span>
+            </div>
+            <input type="text"  asp-for="TaskId"hidden />
+            <div class="form-group">
+                <span>المرفقات:</span>
+                <input type="file" multiple asp-for="Files" class="form-control" />
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" value="add task" class="btn btn-primary" id="sendButton"> اضافةاجابة</button>
+                <button asp-action="Index" asp-controller="Tasks" value="all tasks" class="btn btn-primary"> كافة المهام</button>
+                <button asp-action="TaskDetails" asp-controller="Tasks" asp-route-id="@Model.TaskId" class="btn btn-primary"> تفاصيل المهه</button>
+            </div>
+        </form>
+    </div>
+
+
+</main>

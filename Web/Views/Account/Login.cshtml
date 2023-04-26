@@ -1,0 +1,66 @@
+﻿@model UserGetDto
+
+@{
+    Layout = "_Layout";
+
+    ViewData["Title"] = "Index";
+}
+<form method="post" asp-action="">
+    <div style="height:50px"></div>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="~/Login/images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                
+                                <div class="d-flex justify-content-around align-items-center mb-4">
+                                    <h3>تسجيل الدخول</h3>
+                                </div>
+
+                            </div>
+                                <form method="post">
+                                    @if (ViewBag.isFail == true)
+                                    {
+                                        <div class="@ViewBag.alertType" role="alert">
+                                            @ViewBag.message
+                                        </div>
+                                    }
+                                    <div class="form-group first">
+                                        <label for="username">اسم المستخدم</label>
+                                        <input type="text" class="form-control" id="username" asp-for="Email">
+
+                                    </div>
+                                    <div class="form-group last mb-4">
+                                        <label for="password">كلمة المرور</label>
+                                        <input type="password" class="form-control" id="password" asp-for="Password">
+
+                                    </div>
+                                    <div class="d-flex justify-content-around align-items-center mb-4">
+                                        <!-- Checkbox -->
+                                        @*<div class="form-check">
+                                            <input class="form-check-input" asp-for="RemberMe" type="checkbox" value=""  checked />
+                                            <label class="form-check-label" for="form1Example3"> تذكرني </label>
+                                        </div>*@
+                                        <a>عند فقدان كلمة المرور يرجى التواصل مع ادارة الموقع </a>
+                                    </div>
+
+                                    <div class="d-flex justify-content-around align-items-center mb-4">
+
+                                        <button type="submit" class="btn btn-primary  " asp-action="Login" asp-controller="Account" asp-route-email="@Model.Email" asp-route-password="@Model.Password" asp-route-remberMe="@Model.RemberMe">دخول             </button>
+                                    </div>
+
+                                </form>
+                            </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</form>

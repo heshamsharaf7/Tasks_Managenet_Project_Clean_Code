@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ContactGetDto>
+
+@{
+    Layout = "_sidebar";
+}
+
+
+
+
+<main id="main" dir="ltr" class="main">
+
+    <div class="wrapper wrapper-content" dir="rtl">
+        <div class="col-12">
+            <br>
+            <h3 class="titulo-tabla">قائمة الرسائل</h3>
+       
+           
+
+            <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm " cellspacing="0"
+                   width="100%">
+                <thead>
+                    <tr>
+                        <th>م</th>
+                        <th>اسم العميل</th>
+                        <th>نص الرسالة</th>
+                        <th>تاريخ الادخال</th>
+                        <th>رقم الهاتف</th>
+                       
+                    </tr>
+                </thead>
+                <tbody id="logBody">
+
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>@item.Message</td>
+                            <td>@item.EnnterdDate</td>
+                            <td>@item.PhoneNumber</td>
+                            
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+
+
+
+
+
+
+        </div>
+        <!--    <a class="btn btn-success" asp-action="AddTask" asp-controller="Tasks">اضافة مهمة</a>-->
+    </div>
+
+</main>
+@section Scripts {
+    <script src="~/lib/signalr.js"></script>
+    <script src="~/js/task.js"></script>
+}
+
+

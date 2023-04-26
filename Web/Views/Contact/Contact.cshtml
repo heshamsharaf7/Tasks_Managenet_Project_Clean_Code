@@ -1,0 +1,73 @@
+﻿@model ContactAddDto
+@{
+    Layout = "_Layout";
+
+    ViewData["Title"] = "Contact";
+}
+
+
+
+<!-- Start Breadcrumbs -->
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
+                <div class="breadcrumbs-content">
+                    <h1 class="page-title">تواصل معنا</h1>
+                    <ul class="breadcrumb-nav">
+                        <li style="padding-left: 8px;"><a asp-controller="Home" asp-action="Index"> الرئيسية</a></li>
+                        <li>تواصل معنا</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Start Content Page -->
+<div class="container-fluid bg-light py-5">
+    <div class="col-md-6 m-auto text-center">
+        <h1 class="h1">تواصل معنا</h1>
+        <p>
+            يرجى كتابة نص الرسالة مع رقم الهاتف لنتمكن من التواصل معكم في اقرب وقت..
+        </p>
+    </div>
+</div>
+
+
+<!-- Start Contact -->
+<div class="container py-5">
+    <div class="row py-5">
+        @if (ViewBag.isSuccess == true)
+        {
+            <div class="@ViewBag.alertType" role="alert">
+                @ViewBag.message
+            </div>
+        }
+        <form class="col-md-9 m-auto" method="post" role="form" asp-controller="Contact" asp-action="AddContact">
+
+
+            <div class="row">
+                <div class="form-group col-md-6 mb-3">
+                    <label for="inputname">الاسم</label>
+                    <input asp-for="Name" type="text" class="form-control mt-1" id="name" name="name" placeholder="الاسم" required>
+                </div>
+                <div class="form-group col-md-6 mb-3">
+                    <label for="inputemail">رقم الهاتف</label>
+                    <input type="tel" asp-for="PhoneNumber" class="form-control mt-1" placeholder="رقم الواتساب" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="inputmessage">الرسالة</label>
+                <textarea class="form-control mt-1" asp-for="Message" id="message" name="message" placeholder="نص الرسالة" rows="8" required></textarea>
+            </div>
+            <div class="row">
+                <div class="col text-end mt-2">
+                    <button type="submit" class="btn btn-success btn-lg px-3">ارسال</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- End Contact -->

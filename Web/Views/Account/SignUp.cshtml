@@ -1,0 +1,104 @@
+﻿@model UserAddDto
+
+@{
+    Layout = "_Layout";
+
+    ViewData["Title"] = "تسجيل حساب";
+}
+<div style="height:50px"></div>
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="~/Login/images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="d-flex justify-content-around align-items-center mb-4">
+                            <h3>تسجيل حساب جديد</h3>
+                        </div>
+                        <form method="post" asp-action="Signup" asp-controller="Account">
+                            @*<div class="form-group first">
+            @if (Model.Photo == null)
+            {
+                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+
+            }
+            else
+            {
+                <img src="~/Uploads/@Model.Photo" alt="Admin" class="rounded-circle" width="150">
+
+            }
+        </div>*@
+                            @if (ViewBag.isFail == true)
+                            {
+                                <div class="@ViewBag.alertType" role="alert">
+                                    @ViewBag.message
+                                </div>
+                            }
+                            <div class="form-group first">
+                                <label>الاسم </label>
+                                <input type="text" asp-for="Name" class="form-control">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group first">
+                                <label>الايميل </label>
+                                <input type="email" asp-for="Email" class="form-control">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>التخصص</label>
+                                <select asp-for="MajorId" class="form-control" asp-items=" ViewBag.majors">
+                                </select>
+                                <span asp-validation-for="MajorId" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group last mb-4">
+                                <label> +966 رقم الهاتف</label>
+                                <br />
+                                <input type="tel" class="form-control" value="" asp-for="PhoneNumber" id="phonen" placeholder="رقم الهاتف">
+                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
+                            </div>
+
+
+                            <div class="form-group last mb-4">
+                                <label for="password">كلمة المرور</label>
+                                <input type="password" asp-for="Password" class="form-control" id="password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group last mb-4">
+                                <label for="password"> تأكيد كلمة المرور</label>
+                                <input type="password" asp-for="ConfirmPassword" class="form-control" id="password">
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+
+                            </div>
+                            <!--<div class="form-group">
+        <span>اختيار صورة</span>
+        <input type="file" asp-for="PhotoFiles" class="form-control" />
+
+    </div>
+    <br />-->
+
+                            <div class="form-group last mb-4">
+                                <input type="submit" value="تسجيل حساب" class="btn btn-block btn-primary">
+
+                            </div>
+
+
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

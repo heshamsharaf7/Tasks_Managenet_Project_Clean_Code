@@ -1,0 +1,51 @@
+﻿@model SearchTaskDto
+
+@{
+    Layout = "_Student";
+    ViewData["Title"] = "Student";
+}
+
+<form method="post" asp-action="Search" asp-controller="Home">
+    <div class="container">
+        <div class="row height d-flex justify-content-center align-items-center">
+
+            <ul class="nav nav-pills card-header-pills">
+
+                <li>
+                    <input style="width:600px" type="text" class="form-control" asp-for="SearchStatement" placeholder="اكتب هنا للبحث...">
+                </li>
+                <li>
+                    <input type="submit" class="btn btn-primary" value="بحث"/>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</form>
+<br />
+<br />
+@if (Model == null)
+{
+
+
+}
+else
+{
+    foreach (var tasks in Model.tasks)
+    {
+        <div class="card text-center">
+            <div class="card-body">
+                <p class="card-text col-lg-50 text-truncate">@tasks.title</p>
+                @foreach (var items in tasks.FilesTexts)
+                {
+                    <p class="card-text col-lg-50 text-truncate" >@items</p>
+                }
+                <a asp-controller="Tasks" asp-action="TaskDetails" asp-route-id="@tasks.Id">عرض التفاصيل</a>
+            </div>
+        </div>
+        <br />
+        <br />
+
+    }
+}

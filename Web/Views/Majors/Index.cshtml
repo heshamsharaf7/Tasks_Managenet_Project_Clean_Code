@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MajorGetDto>
+@{
+    Layout = "_sidebar";
+    //ViewBag.isSusse = false;
+
+}
+
+<main id="main" dir="ltr" class="main">
+
+    <div class="wrapper wrapper-content" dir="rtl">
+        @if (ViewBag.isSuccess  == true)
+        {
+            <div class="@ViewBag.alertType" role="alert">
+                @*saved done <a asp-controller="book" asp-action="GetBookByI" asp-route-id="@ViewBag.bookId" class="alert-link">go to details</a>. Give it a click if you like.*@
+              @ViewBag.message
+            </div>
+        }
+        <div class="col-12">
+            <br>
+            <h3 class="titulo-tabla">قائمة التخصصات </h3>
+            <hr>
+
+            <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm " cellspacing="0"
+                   width="100%">
+                <thead>
+                    <tr>
+                        <th>م</th>
+                        <th>اسم التخصص</th>
+                        <th>تاريخ الادخال</th>
+                        <th>ملاحظات</th>
+                        <th>الحدث</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var majorItem in Model)
+                    {
+                        <tr>
+                            <td>@majorItem.Id</td>
+                            <td>@majorItem.Name</td>
+                            <td>@majorItem.EnterdDate</td>
+                            <td>@majorItem.Notes</td>
+                            <td>
+                                <a class="bi bi-trash" asp-action="DeleteMajor" asp-route-id="@majorItem.Id"></a>
+                                <a class="bi bi-pencil-square" asp-action="UpdateMajor" asp-route-id="@majorItem.Id"></a>
+                            </td>
+
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+
+
+
+
+
+        </div>
+        <a class="btn btn-success" asp-action="AddMajor" asp-controller="Majors">اضافة تخصص</a>
+
+    </div>
+</main>

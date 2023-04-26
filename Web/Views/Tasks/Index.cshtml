@@ -1,0 +1,130 @@
+﻿@model IEnumerable<TaskGetDto>
+
+@{
+    Layout = "_sidebar";
+}
+
+
+
+
+<main id="main" dir="ltr" class="main">
+
+    <div class="wrapper wrapper-content" dir="rtl">
+        <div class="col-12">
+            <br>
+            <h3 class="titulo-tabla">المهام</h3>
+            <hr>
+            @*<form method="post">
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label">المهام المنتظرة</label>
+
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label">المهام المصادق عليها</label>
+
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label">المهام المنجزة</label>
+
+                    <input type="checkbox" class="form-check-input">
+                    <label class="form-check-label">المهام المكتملة</label>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="بحث" aria-label="Search"
+                           aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <input type="button" class="input-group-text" id="search-btn" value="بحث">
+                    </div>
+
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">الاسم</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                    <label class="form-check-label" for="inlineRadio1">رقم المهمة</label>
+                </div>
+            </form>*@
+
+            <table id="dtHorizontalVerticalExample" class="table table-striped table-bordered table-sm " cellspacing="0"
+                   width="100%">
+                <thead>
+                    <tr>
+                        <th>م</th>
+                        <th>اسم العميل</th>
+                        <th>تفاصيل المهمة</th>
+                        <th>تاريخ الادخال</th>
+                   <!--     <th>تاريخ الانجاز المتوقع</th>-->
+                        <th>حالة المهمة</th>
+                        <!--   <th>تاريخ الانجاز الفعلي</th>-->
+                        <!--  <th>ملاحظات</th>-->
+                        <th>السعر</th>
+                        <th>الحدث</th>
+                    </tr>
+                </thead>
+                <tbody id="logBody">
+
+
+                    @foreach (var taskItem in Model)
+                    {
+                    <tr>
+                        <td>@taskItem.Id</td>
+                        <td>@taskItem.UserName</td>
+                        <td><a asp-action="TaskDetails" asp-route-id="@taskItem.Id"><span class="d-inline-block text-truncate" style="max-width: 150px">@taskItem.title</span></a></td>
+                        <td>@taskItem.EnterdDate</td>
+                        @*     <td>@taskItem.DueDate</td>*@
+                                    <td>@taskItem.TaskStatuesName</td>
+                                @*    <td>@taskItem.endDate</td>*@
+                                    <td><form method="get" asp-action="UpdatePrice" asp-controller="Tasks">
+                                        <input type="number" style="width:100px" id="price" name="price" value="@taskItem.Price" />
+                                        <input type="text" style="width:100px" id="id" name="id" value="@taskItem.Id"  hidden/>
+                                        <input type="submit" value="تسعير"/>
+                                        </form></td>
+
+
+                                @*    <td>@taskItem.Notes</td>*@
+                                    <td>
+                                        @if (taskItem.TaskStatuesId == 1)
+                                        {
+                                            <a class="bi bi-check" asp-action="setStatues" asp-controller="Tasks" asp-route-id="@taskItem.Id" asp-route-statues="2"></a>
+                                        }
+                                        else if (taskItem.TaskStatuesId == 2)
+                                        {
+                                            <a class="bi bi-door-open" asp-action="setStatues" asp-controller="Tasks" asp-route-id="@taskItem.Id" asp-route-statues="3"></a>
+                                            <a class="bi bi-snow" asp-action="setStatues" asp-controller="Tasks" asp-route-id="@taskItem.Id" asp-route-statues="5"></a>
+                                        }
+                                        else if (taskItem.TaskStatuesId == 5)
+                                        {
+                                            <a class="bi bi-door-open" asp-action="setStatues" asp-controller="Tasks" asp-route-id="@taskItem.Id" asp-route-statues="3"></a>
+
+                                        }
+                                        else if (taskItem.TaskStatuesId == 3)
+                                        {
+                                            <a class="bi bi-door-closed" asp-action="setStatues" asp-controller="Tasks" asp-route-id="@taskItem.Id" asp-route-statues="4"></a>
+                                            <a class="bi bi-snow" asp-action="setStatues" asp-controller="Tasks" asp-route-id="@taskItem.Id" asp-route-statues="5"></a>
+
+                                        }
+                                    </td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                    </table>
+
+
+
+
+
+
+                </div>
+                <!--    <a class="btn btn-success" asp-action="AddTask" asp-controller="Tasks">اضافة مهمة</a>-->
+            </div>
+
+        </main>
+        @section Scripts {
+            <script src="~/lib/signalr.js"></script>
+            <script src="~/js/task.js"></script>
+        }
+
+

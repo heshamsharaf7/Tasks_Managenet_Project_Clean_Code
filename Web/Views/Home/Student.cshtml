@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TaskGetDto>
+@{
+    Layout = "_Student";
+
+    ViewData["Title"] = "Student";
+}
+    <div style="width:100%">
+        <span class="dot" style="background-color:#dcd713"></span>&nbsp;<span>منتظرة  &nbsp; </span>
+        <span class="dot" style="background-color:#14db1c"></span>&nbsp;<span>تم قبول المهمة  &nbsp;   </span>
+        <span class="dot" style="background-color:#da14db"></span>&nbsp;<span>جاري العمل  &nbsp;</span>
+        <span class="dot" style="background-color:#142bdb"></span>&nbsp;<span> تم اكتمال المهمة &nbsp; </span>
+        <span class="dot" style="background-color:#db144a"></span>&nbsp;<span> تم الغاء المهمة &nbsp; </span>
+    </div>
+<br />
+<br />
+@foreach (var tasks in Model)
+{
+    if (tasks.TaskStatuesId == 1)
+    {
+        <span style="width:20px;height:92px; background-color:#dcd713; float:left "></span>
+
+    }
+    else if (tasks.TaskStatuesId == 2)
+    {
+        <span style="width:20px;height:92px; background-color:#14db1c; float:left "></span>
+
+    }
+    else if (tasks.TaskStatuesId == 3)
+    {
+        <span style="width:20px;height:92px; background-color:#da14db; float:left;   "></span>
+
+    }
+    else if (tasks.TaskStatuesId == 4)
+    {
+        <span style="width:20px;height:92px; background-color:#142bdb; float:left "></span>
+
+    }
+    else if (tasks.TaskStatuesId == 5)
+    {
+        <span style="        width: 20px;
+        height: 92px;
+        background-color: #db144a;
+        float: left"></span>
+
+    }
+
+    <div class="card">
+        <div class="card-body " style="background-color:#f4f4f4">
+            <a asp-controller="Tasks" asp-action="TaskDetails" asp-route-id="@tasks.Id" style="	text-decoration: none;  ">   <div class="card-body col-lg-50 text-truncate" style="color:black" >@tasks.title</div></a>
+        </div>
+
+    </div>
+    <br />
+}
